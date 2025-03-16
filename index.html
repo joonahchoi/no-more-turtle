@@ -7,15 +7,19 @@
 </head>
 <body>
     <h2>자세 교정 프로그램</h2>
-    <button onclick="init()">시작하기</button>
-    <div id="label-container"></div>
+    <button type="button" onclick="init()">시작하기</button>
     <div id="webcam-container"></div>
+    <div id="label-container"></div>
 
     <script type="text/javascript">
         const URL = "./";
         let model, webcam, labelContainer, maxPredictions;
+        let webcamStarted = false;
 
         async function init() {
+            if(webcamStarted) return; // 이미 웹캠이 시작됐다면 다시 시작하지 않음.
+            webcamStarted = true;
+
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
 
