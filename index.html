@@ -9,11 +9,10 @@
     <h2>자세 교정 프로그램</h2>
     <button onclick="init()">시작하기</button>
     <div id="label-container"></div>
-    <video id="webcam" autoplay playsinline width="300" height="300"></video>
+    <div id="webcam-container"></div>
 
     <script type="text/javascript">
-        const URL = "./";  // ★ 깃허브 같은폴더 기준으로 "./"
-
+        const URL = "./";
         let model, webcam, labelContainer, maxPredictions;
 
         async function init() {
@@ -29,7 +28,7 @@
             await webcam.play();
             window.requestAnimationFrame(loop);
 
-            document.getElementById("webcam").appendChild(webcam.canvas);
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) {
                 labelContainer.appendChild(document.createElement("div"));
