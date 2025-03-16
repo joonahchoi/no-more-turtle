@@ -7,17 +7,18 @@
 </head>
 <body>
     <h2>자세 교정 프로그램</h2>
-    <button type="button" onclick="init()">시작하기</button>
+    <button onclick="init()">시작하기</button>
     <div id="webcam-container"></div>
     <div id="label-container"></div>
 
     <script type="text/javascript">
-        const URL = "./";
+        const URL = "https://teachablemachine.withgoogle.com/models/gsFWDl4O_/"; 
+
         let model, webcam, labelContainer, maxPredictions;
         let webcamStarted = false;
 
         async function init() {
-            if(webcamStarted) return; // 이미 웹캠이 시작됐다면 다시 시작하지 않음.
+            if(webcamStarted) return;  //중복실행 방지
             webcamStarted = true;
 
             const modelURL = URL + "model.json";
@@ -54,5 +55,10 @@
             }
         }
     </script>
+
+    <h2>자세 교정 프로그램</h2>
+    <button onclick="init()">시작하기</button>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
 </body>
 </html>
